@@ -12,6 +12,7 @@ val paradiseVersion = "2.1.0"
 val assemblySettings = Seq(
   test in assembly := {}
 )
+
 val commonSettings = assemblySettings ++ Seq(
 
   libraryDependencies += "org.scalatest" %% "scalatest" % scalatestVersion % "test",
@@ -25,7 +26,7 @@ val commonSettings = assemblySettings ++ Seq(
 
 publishArtifact := false
 
-lazy val virtualized = (project in file("scala-virtualized"))
+lazy val virtualized = (project in file("virtualized"))
   .settings(assemblySettings)
 
 lazy val forge = (project in file("argon/forge"))
@@ -41,7 +42,7 @@ lazy val spatial = (project in file("spatial/core"))
   .settings(commonSettings)
   .settings(assemblyJarName in assembly := "spatial-lang.jar")
 
-lazy val apps = project
+lazy val apps = (project in file("apps/apps")
   .dependsOn(spatial, virtualized)
-  .settings(assemblySettings)
+  .settings(commonSettings)
   .settings(assemblyJarName in assembly := "apps.jar")

@@ -3,5 +3,9 @@
 	url = https://github.com/stanford-ppl/argon
 
 [submodule "scala-virtualized"]
-	path = scala-virtualized
+	path = virtualized
 	url = https://github.com/stanford-ppl/scala-virtualized
+
+[submodule "spatial-examples"]
+	path = apps
+	url = https://github.com/stanford-ppl/spatial-examples
