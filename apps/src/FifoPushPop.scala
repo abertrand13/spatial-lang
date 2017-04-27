@@ -15,7 +15,7 @@ object FifoPushPop extends SpatialApp { // Regression (Unit) // Args: 384
       //TODO: Create a FIFO
       //TODO: Create a register used for accumulating sums at each step
       val accum = Reg[Int](0)
-      val fifo = FIFO[Int](size)
+      val fifo = FIFO[Int](16)
 
       // We want to use two reduces to get the sum. Here let's use tileSize = 16
       // and N = 16 as an example. The outer reduce loop would reduce N by tileSize, 
